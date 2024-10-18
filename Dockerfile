@@ -14,18 +14,18 @@ RUN npm install
 COPY . .
 
 # Step 6: Compile TypeScript to JavaScript
-RUN npm run build
+# RUN npm run build
 
 # Step 7: Use a smaller Node.js runtime image to run the application
-FROM node:18-alpine
+# FROM node:18-alpine
 
 # Step 8: Set the working directory in the new image
-WORKDIR /app
+# WORKDIR /app
 
 # Step 9: Copy the compiled output and node_modules from the build stage
-COPY --from=build /app/dist ./dist
-COPY --from=build /app/node_modules ./node_modules
-COPY --from=build /app/package*.json ./
+# COPY --from=build /app/dist ./dist
+# COPY --from=build /app/node_modules ./node_modules
+# COPY --from=build /app/package*.json ./
 
 # Step 10: Expose the port your application runs on
 EXPOSE 3000
